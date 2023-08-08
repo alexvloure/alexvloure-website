@@ -1,0 +1,51 @@
+'use client';
+
+import i18next from 'i18next';
+import global_en from '@/locales/en/global.json';
+import global_es from '@/locales/es/global.json';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProviderProps } from 'next-themes/dist/types';
+import { useEffect } from 'react';
+import { I18nextProvider } from 'react-i18next';
+import { AnimatePresence } from 'framer-motion';
+
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: 'en',
+  resources: {
+    en: {
+      global: global_en,
+    },
+    es: {
+      global: global_es,
+    },
+  },
+});
+
+export default function ProvidersWrapper({
+  children,
+  attribute,
+  defaultTheme,
+  enableSystem,
+}: {
+  children: React.ReactNode;
+  attribute?: ThemeProviderProps['attribute'];
+  defaultTheme?: ThemeProviderProps['defaultTheme'];
+  enableSystem?: ThemeProviderProps['enableSystem'];
+}) {
+  useEffect(() => {
+    const language = localStorage.getItem('language');
+    i18next.changeLanguage(language!);
+  }, []);
+
+  return (
+    <I18nextProvider i18n={i18next}>
+      <NextThemesProvider
+        attribute={attribute}
+        defaultTheme={defaultTheme}
+        enableSystem={enableSystem}>
+        <AnimatePresence mode="wait">{children}</AnimatePresence>
+      </NextThemesProvider>
+    </I18nextProvider>
+  );
+}

@@ -2,15 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
+    --foreground-rgb: 0, 0, 0;
+    --background: #fff;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+     /** sunny side **/
+     --blue-background: #c2e9f6;
+     --blue-color: #96dcee;
+     --yellow-background: #fffaa8;
+     --yellow-border: #f5eb71;
+     --yellow-shadow: #fff190;
+     /** dark side **/
+     --purple-background: #211042;
+     --gray-border: #e8e8ea;
+     --gray-dots: #e8e8ea;
+     /** general **/
+     --white: #fff;
+  }
+
+  .dark {
     --foreground-rgb: 255, 255, 255;
+    --background: #161616;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
@@ -18,10 +33,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background-color: var(--background)
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }

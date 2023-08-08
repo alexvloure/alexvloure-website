@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ['api.mapbox.com', 'i.scdn.co'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
