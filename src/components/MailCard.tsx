@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { HiMail } from 'react-icons/hi';
+import { IoIosArrowDroprightCircle } from 'react-icons/io';
 
 export default function MailCard() {
   const { theme, resolvedTheme } = useTheme();
@@ -53,6 +54,7 @@ export default function MailCard() {
         className="text-4xl md:text-7xl lg:text-9xl"
         style={{ fill: gradient }}
       />
+      <IoIosArrowDroprightCircle className="text-lime-600 dark:text-purple-600 text-lg md:text-3xl absolute right-4 bottom-4 xl:right-8 xl:bottom-8" />
     </a>
   );
 }

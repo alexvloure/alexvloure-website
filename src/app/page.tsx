@@ -13,6 +13,7 @@ import MapCard from '@/components/MapCard';
 import { motion } from 'framer-motion';
 import MailCard from '@/components/MailCard';
 import SpotifyCard from '@/components/SpotifyCard';
+import WeatherCard from '@/components/WeatherCard';
 
 export default function Home() {
   return (
@@ -27,17 +28,14 @@ export default function Home() {
         <LanguageCard />
         <ThemeCard />
         <ExperienceCard />
-        <LinkedInCard />
-        <CVCard />
-        <TwitterCard />
-        <GithubCard />
         <SkillsCard />
-        <MailCard />
+        <GithubCard />
         <MapCard />
-        <MailCard />
-        <MailCard />
-        <MailCard />
+        <LinkedInCard />
+        <TwitterCard />
+        <WeatherCard />
         <SpotifyCard />
+        <MailCard />
       </div>
     </motion.div>
   );
