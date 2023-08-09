@@ -13,5 +13,8 @@
   "spotify": {
     "recently": "Recently played"
   },
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "weather": {
+    "location": "Santiago de Compostela, SP"
+  }
 }

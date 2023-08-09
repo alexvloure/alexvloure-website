@@ -1,7 +1,7 @@
 .toggleLabel {
   width: 88px;
   height: 42px;
-  background: var(--blue-color);
+  background: #00ADF2;
   border-radius: 100px;
   display: flex;
   position: relative;
@@ -18,13 +18,12 @@
   content: '';
   width: 34px;
   height: 34px;
-  border: 2px solid var(--yellow-border);
   top: 4px;
   left: 2px;
   position: absolute;
   border-radius: 52px;
-  background: var(--yellow-background);
-  box-shadow: 0 0 15px 2px var(--yellow-shadow);
+  background: #FEB125;
+  box-shadow: 0 0 15px 2px #FEB125;
 }
 
 .toggleLabelBackground {
@@ -65,7 +64,6 @@
   border-radius: 1px;
   background: var(--white);
   transition: all 150ms ease-in;
-  /* box-shadow: 0 0 10px 1px var(--white); */
   box-shadow: 0 0 8px 1px rgba(255,255,255,1);
 }
 
@@ -83,12 +81,11 @@
 }
 
 .toggleCheckbox:checked ~ .toggleLabel {
-  background: var(--purple-background);
+  background: #0C1445;
 }
 
 .toggleCheckbox:checked + .toggleLabel:before {
-  background: var(--white);
-  border-color: var(--gray-border);
+  background: #F2E5B4;
   animation-name: switch;
   animation-duration: 350ms;
   animation-fill-mode: forwards;
@@ -100,7 +97,7 @@
   transition: all 250ms ease-in;
   position: absolute;
   content: '';
-  box-shadow: var(--gray-dots) -10px 0 0 3px, var(--gray-dots) -18px 8px 0 1px;
+  box-shadow: #f8dd92 -10px 0 0 3px, #f8dd92 -18px 8px 0 1px;
   left: 72px;
   top: 10px;
   width: 3px;

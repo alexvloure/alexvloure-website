@@ -67,7 +67,7 @@ export default function SpotifyCard() {
   };
 
   return (
-    <div className="relative flex flex-col justify-between rounded-3xl col-span-2 overflow-hidden p-3 md:p-7 lg:p-8 bg-[#0000008f]">
+    <div className="relative flex flex-col justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-7 lg:p-8 bg-[#0000008f]">
       <a
         href={data?.external_urls.spotify}
         target="_blank"
