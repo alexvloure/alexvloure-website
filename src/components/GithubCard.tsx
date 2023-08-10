@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import devGif from '../assets/dev.gif';
+import devGif from '@/assets/images/dev.gif';
 import { FaGithub } from 'react-icons/fa6';
 import { MdOpenInNew } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';

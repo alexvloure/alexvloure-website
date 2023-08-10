@@ -1,7 +1,7 @@
 'use client';
 
 import { useSpotify } from '@/hooks/useSpotify';
-import waving from '../assets/alexvloure-waving_upscaled.png';
+import waving from '@/assets/images/alexvloure-waving_upscaled.png';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 

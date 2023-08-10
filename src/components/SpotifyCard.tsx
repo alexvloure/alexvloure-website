@@ -1,6 +1,6 @@
 import { useSpotify } from '@/hooks/useSpotify';
 import Image from 'next/image';
-import noise from '@/assets/noise.gif';
+import noise from '@/assets/images/noise.gif';
 import { BsSpotify, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import styles from '@/styles/SpotifyCard.module.css';
 import { useTranslation } from 'react-i18next';

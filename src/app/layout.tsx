@@ -1,9 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import ProvidersWrapper from './ProvidersWrapper';
+import { Analytics } from '@vercel/analytics/react';
 
-const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'alexvloure | Frontend developer',
@@ -17,10 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="min-h-screen">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <ProvidersWrapper attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ProvidersWrapper>
+        <Analytics />
       </body>
     </html>
   );
