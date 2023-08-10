@@ -1,8 +1,8 @@
 'use client';
 
-import greenMap from '../assets/greenMap.png';
-import purpleMap from '../assets/purpleMap.png';
-import mapPfp from '../assets/alexvloure_pfp.png';
+import greenMap from '@/assets/images/greenMap.png';
+import purpleMap from '@/assets/images/purpleMap.png';
+import mapPfp from '@/assets/images/alexvloure_pfp.png';
 import { useTheme } from 'next-themes';
 import Image, { StaticImageData } from 'next/image';
 import { useEffect, useState } from 'react';
