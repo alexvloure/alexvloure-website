@@ -15,7 +15,7 @@ export default function GithubCard() {
       href="https://www.github.com/alexvloure"
       target="_blank"
       className="rounded-3xl col-span-2 overflow-hidden hover:scale-[103%] transition duration-300 ease-in-out cursor-pointer">
-      <div className="relative h-full w-full p-4 md:p-8 bg-[#33530284] dark:bg-[#3d154875] transition duration-300 ease-in-out cursor-pointer">
+      <div className="relative h-full w-full p-4 md:p-8 bg-[#ee5c3768] dark:bg-[#3d154875] transition duration-300 ease-in-out cursor-pointer">
         <Image
           src={devGif}
           alt="Github image"

@@ -67,7 +67,7 @@ export default function SpotifyCard() {
   };
 
   return (
-    <div className="relative flex flex-col justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-7 lg:p-8 bg-[#0000008f]">
+    <div className="relative flex flex-col justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-4 lg:p-8 bg-[#0000008f]">
       <a
         href={data?.external_urls.spotify}
         target="_blank"
@@ -84,7 +84,7 @@ export default function SpotifyCard() {
         className="absolute w-full h-full top-0 left-0 object-cover object-center -z-10 transition duration-300 ease-in-out transform scale-[106%]"
       />
       <div>
-        <h2 className="text-white font-bold text-xs lg:text-2xl md:text-xl">
+        <h2 className="text-white font-bold text-xs md:text-xl lg:text-2xl">
           {t('spotify.recently')}
         </h2>
         <div className="flex mb-2 flex-col">

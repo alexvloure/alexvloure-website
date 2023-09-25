@@ -1,7 +1,7 @@
 'use client';
 
-import greenMap from '@/assets/images/greenMap.png';
-import purpleMap from '@/assets/images/purpleMap.png';
+import lightMap from '@/assets/images/lightMap.png';
+import darkMap from '@/assets/images/darkMap.png';
 import mapPfp from '@/assets/images/alexvloure_pfp.png';
 import { useTheme } from 'next-themes';
 import Image, { StaticImageData } from 'next/image';
@@ -17,19 +17,19 @@ export default function MapCard() {
   // const darkMap = `https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/-8.5442,42.8769,12,0/480x268?access_token=${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
   // const lightMap = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/-8.5442,42.8769,12,0/480x268?access_token=${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
   const { theme, resolvedTheme } = useTheme();
-  const [map, setMap] = useState<StaticImageData>(greenMap);
+  const [map, setMap] = useState<StaticImageData>(lightMap);
 
   useEffect(() => {
     if (theme === 'system') {
       if (resolvedTheme === 'light') {
-        setMap(greenMap);
+        setMap(lightMap);
       } else {
-        setMap(purpleMap);
+        setMap(darkMap);
       }
     } else if (theme === 'light') {
-      setMap(greenMap);
+      setMap(lightMap);
     } else {
-      setMap(purpleMap);
+      setMap(darkMap);
     }
   }, [theme, resolvedTheme]);
 

@@ -71,14 +71,14 @@ export default function WeatherCard() {
                 draggable="false"
               />
             </div>
-            <div>
-              <p className="capitalize text-white text-xs md:text-2xl font-semibold md:mb-4">
+            <div className="z-[1]">
+              <p className="capitalize text-white text-xs md:text-2xl font-semibold">
                 {dataWeather?.current.weather[0].description}
               </p>
-              <p className="text-white text-xs md:text-2xl font-semibold">
+              <p className="text-white text-xs hidden lg:flex md:text-2xl font-semibold">
                 {time}
               </p>
-              <p className="text-white text-xs md:text-2xl relative z-[1]">
+              <p className="text-white text-xs sm:text-lg md:text-xl lg:text-2xl relative">
                 {t('weather.location')}
               </p>
             </div>

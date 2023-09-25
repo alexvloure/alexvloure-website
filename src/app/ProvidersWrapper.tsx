@@ -7,7 +7,9 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
 import { useEffect } from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import FrozenRouter from '@/components/FrozenRouter';
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -33,6 +35,8 @@ export default function ProvidersWrapper({
   defaultTheme?: ThemeProviderProps['defaultTheme'];
   enableSystem?: ThemeProviderProps['enableSystem'];
 }) {
+  const path = usePathname();
+
   useEffect(() => {
     const language = localStorage.getItem('language');
     i18next.changeLanguage(language!);
@@ -44,7 +48,16 @@ export default function ProvidersWrapper({
         attribute={attribute}
         defaultTheme={defaultTheme}
         enableSystem={enableSystem}>
-        <AnimatePresence mode="wait">{children}</AnimatePresence>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            initial={{ opacity: 0, y: path === '/' ? -800 : 600 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: path === '/' ? -800 : 800 }}
+            transition={{ duration: 0.5 }}
+            key={path}>
+            <FrozenRouter>{children}</FrozenRouter>
+          </motion.div>
+        </AnimatePresence>
       </NextThemesProvider>
     </I18nextProvider>
   );
