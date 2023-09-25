@@ -9,11 +9,10 @@ import TwitterCard from '@/components/TwitterCard';
 import GithubCard from '@/components/GithubCard';
 import SkillsCard from '@/components/SkillsCard';
 import MapCard from '@/components/MapCard';
-import { motion } from 'framer-motion';
 import MailCard from '@/components/MailCard';
 import SpotifyCard from '@/components/SpotifyCard';
 import WeatherCard from '@/components/WeatherCard';
-import BlogCard from '@/components/BlogCard';
+import BlogCard from '@/components/blog-components/BlogCard';
 import { usePathname } from 'next/navigation';
 
 export default function Home() {
