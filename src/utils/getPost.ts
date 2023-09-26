@@ -2,6 +2,7 @@ import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import fs from 'fs/promises';
 import { cache } from 'react';
+import { redirect } from 'next/navigation';
 
 export type Frontmatter = {
   title: string;
@@ -37,17 +38,17 @@ export const getPosts = cache(async (): Promise<Post<Frontmatter>[]> => {
   return posts;
 });
 
-export const getPost = async (slug: string): Promise<Post<Frontmatter>> => {
+export const getPost = async (pSlug: string): Promise<Post<Frontmatter>> => {
   const posts = await getPosts();
-  const post = posts.find((post) => post.slug === slug);
-  const source = await fs.readFile(`src/content/${slug}.mdx`, 'utf-8');
-  const mdxSerialized = await serialize(source, {
-    parseFrontmatter: true,
-  });
+  const post = posts.find((post) => post.slug === pSlug);
+  if (!post) {
+    redirect('/blog');
+  }
+  const { slug, mdxSerialized, frontmatter } = post;
 
   return {
     slug,
     mdxSerialized,
-    frontmatter: mdxSerialized.frontmatter as Frontmatter,
+    frontmatter,
   };
 };

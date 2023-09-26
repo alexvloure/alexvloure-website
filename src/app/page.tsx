@@ -13,11 +13,8 @@ import MailCard from '@/components/MailCard';
 import SpotifyCard from '@/components/SpotifyCard';
 import WeatherCard from '@/components/WeatherCard';
 import BlogCard from '@/components/blog-components/BlogCard';
-import { usePathname } from 'next/navigation';
 
 export default function Home() {
-  const path = usePathname();
-
   return (
     <div className="flex flex-col mx-5">
       {/* Gradients to apply to icons while no other way is available */}

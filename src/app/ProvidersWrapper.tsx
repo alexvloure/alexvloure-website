@@ -50,9 +50,9 @@ export default function ProvidersWrapper({
         enableSystem={enableSystem}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
-            initial={{ opacity: 0, y: path === '/' ? -800 : 600 }}
+            initial={{ opacity: 0, y: path !== '/blog' ? -800 : 600 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: path === '/' ? -800 : 800 }}
+            exit={{ opacity: 0, y: path !== '/blog' ? -800 : 800 }}
             transition={{ duration: 0.5 }}
             key={path}>
             <FrozenRouter>{children}</FrozenRouter>

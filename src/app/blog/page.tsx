@@ -6,8 +6,8 @@ export default function Blog() {
   return (
     <>
       <LangBanner />
-      <div className="flex flex-col items-center mx-5">
-        <div className="container my-10 mx-auto xl:px-20">
+      <div className="mx-5">
+        <div className="container my-10 mx-auto xl:px-20 flex flex-col gap-5">
           <BlogHeader />
           <BlogContent />
         </div>
