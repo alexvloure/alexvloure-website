@@ -1,3 +1,5 @@
+'use client';
+
 import { useSpotify } from '@/hooks/useSpotify';
 import Image from 'next/image';
 import noise from '@/assets/images/noise.gif';
@@ -100,7 +102,7 @@ export default function SpotifyCard() {
         </div>
         <div className="h-[2vh] mt-1 w-min flex justify-center items-center">
           <div
-            className=" text-white text-xl mr-1"
+            className=" text-white text-xl mr-1 cursor-pointer"
             onClick={() => handleState()}>
             {isPlaying ? <BsPauseFill /> : <BsPlayFill />}
           </div>

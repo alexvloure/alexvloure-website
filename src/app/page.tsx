@@ -1,20 +1,22 @@
-'use client';
-
-import AboutCard from '@/components/AboutCard';
-import LanguageCard from '@/components/LanguageCard';
-import ThemeCard from '@/components/ThemeCard';
-import LinkedInCard from '@/components/LinkedInCard';
-import ExperienceCard from '@/components/ExperienceCard';
-import TwitterCard from '@/components/TwitterCard';
-import GithubCard from '@/components/GithubCard';
-import SkillsCard from '@/components/SkillsCard';
-import MapCard from '@/components/MapCard';
-import MailCard from '@/components/MailCard';
-import SpotifyCard from '@/components/SpotifyCard';
-import WeatherCard from '@/components/WeatherCard';
+import AboutCard from '@/components/home-components/AboutCard';
+import LanguageCard from '@/components/home-components/LanguageCard';
+import ThemeCard from '@/components/home-components/ThemeCard';
+import LinkedInCard from '@/components/home-components/LinkedInCard';
+import ExperienceCard from '@/components/home-components/ExperienceCard';
+import TwitterCard from '@/components/home-components/TwitterCard';
+import GithubCard from '@/components/home-components/GithubCard';
+import SkillsCard from '@/components/home-components/SkillsCard';
+import MapCard from '@/components/home-components/MapCard';
+import MailCard from '@/components/home-components/MailCard';
+import SpotifyCard from '@/components/home-components/SpotifyCard';
+import WeatherCard from '@/components/home-components/WeatherCard';
 import BlogCard from '@/components/blog-components/BlogCard';
+import { getPosts } from '@/utils/getPost';
+import BlogPostsCard from '@/components/home-components/BlogPostsCard';
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getPosts();
+
   return (
     <div className="flex flex-col mx-5">
       {/* Gradients to apply to icons while no other way is available */}
@@ -50,6 +52,7 @@ export default function Home() {
         <SpotifyCard />
         <MailCard />
         <BlogCard />
+        {/* <BlogPostsCard posts={posts} /> */}
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 import { useTranslation } from 'react-i18next';
 import Day from './weather-components/Day';
 import { useWeather } from '@/hooks/useWeather';

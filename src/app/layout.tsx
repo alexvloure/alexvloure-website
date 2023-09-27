@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="min-h-screen">
+    <html lang="en" className="min-h-screen" suppressHydrationWarning>
       <body className={montserrat.className}>
         <ProvidersWrapper attribute="class" defaultTheme="system" enableSystem>
           {children}

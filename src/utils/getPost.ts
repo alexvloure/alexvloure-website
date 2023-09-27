@@ -1,24 +1,9 @@
-import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import fs from 'fs/promises';
 import { cache } from 'react';
 import { redirect } from 'next/navigation';
 import path from 'path';
-
-export type Frontmatter = {
-  title: string;
-  publishedDate: string;
-  lastUpdatedDate: string;
-  tags: string[];
-  description: string;
-  status: string;
-};
-
-type Post<TFrontmatter> = {
-  slug: string;
-  mdxSerialized: MDXRemoteSerializeResult;
-  frontmatter: TFrontmatter;
-};
+import { Frontmatter, Post } from '@/models/models';
 
 export const getPosts = cache(async (): Promise<Post<Frontmatter>[]> => {
   const workDirPath = process.cwd();
