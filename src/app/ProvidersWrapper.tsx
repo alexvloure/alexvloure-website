@@ -5,6 +5,7 @@ import global_en from '@/locales/en/global.json';
 import global_es from '@/locales/es/global.json';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -20,6 +21,22 @@ i18next.init({
     },
     es: {
       global: global_es,
+    },
+  },
+});
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      onError() {
+        console.log('Something went wrong!');
+      },
+    },
+    mutations: {
+      onError() {
+        console.log('Something went wrong!');
+      },
     },
   },
 });
@@ -48,16 +65,18 @@ export default function ProvidersWrapper({
         attribute={attribute}
         defaultTheme={defaultTheme}
         enableSystem={enableSystem}>
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            initial={{ opacity: 0, y: path !== '/blog' ? -800 : 600 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: path !== '/blog' ? -800 : 800 }}
-            transition={{ duration: 0.5 }}
-            key={path}>
-            <FrozenRouter>{children}</FrozenRouter>
-          </motion.div>
-        </AnimatePresence>
+        <QueryClientProvider client={queryClient}>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              initial={{ opacity: 0, y: path !== '/blog' ? -800 : 600 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: path !== '/blog' ? -800 : 800 }}
+              transition={{ duration: 0.5 }}
+              key={path}>
+              <FrozenRouter>{children}</FrozenRouter>
+            </motion.div>
+          </AnimatePresence>
+        </QueryClientProvider>
       </NextThemesProvider>
     </I18nextProvider>
   );

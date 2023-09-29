@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 import SpotifyWebApi from 'spotify-web-api-node';
 
 const api = new SpotifyWebApi({
@@ -7,10 +7,7 @@ const api = new SpotifyWebApi({
   redirectUri: 'http://localhost:3000',
 });
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function GET() {
   try {
     api.setRefreshToken(process.env.SPOTIFY_REFRESH_TOKEN!);
     const data = await api.refreshAccessToken();
@@ -19,7 +16,7 @@ export default async function handler(
     const recentTracks = await api.getMyRecentlyPlayedTracks({
       limit: 1,
     });
-    res.status(200).json(recentTracks.body.items[0].track);
+    return NextResponse.json(recentTracks.body.items[0].track);
   } catch (err) {
     console.log('Something went wrong!', err);
   }
