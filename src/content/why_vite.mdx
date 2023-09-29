@@ -25,8 +25,8 @@ Before ES modules became available, developers had no way to modularize a JavaSc
 
 So here is when Vite enters the scene. By making use of native ESM it improves server start time and also HMR time.
 
-**Server start**: usually when starting a dev server all the files of your application are bundled and served. Vite takes a different approach, it divides the modules in two categories:
-- *Dependencies*. Vite pre-bundles these using [esbuild](https://esbuild.github.io/) (a Go-written bundler 10-100x times faster than JavaScript written ones)
+**Server start**: Usually when starting a dev server all the files of your application are bundled and served. Vite takes a different approach, it divides the modules in two categories:
+- *Dependencies*. Vite pre-bundles these using [esbuild](https://esbuild.github.io/) (a Go-written bundler 10-100x times faster than JavaScript-written ones)
 - *Source code*. Vite serves it over native ESM, this means that the browser does a part of the job of a classic bundler. This way Vite only needs to transform and serve source code when the browser requests it.
 
-**Updates with HMR**:
+**Updates with HMR**: Vite uses native ESM for HMR as well. This, in contrast to other methods, means that only a limited portion of the dependency chain is invalidated, leading to non-expanding HMR times as the application gains complexity.
