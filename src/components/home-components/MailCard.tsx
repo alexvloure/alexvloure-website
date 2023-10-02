@@ -26,6 +26,7 @@ export default function MailCard() {
   return (
     <a
       href="mailto: alejandrovloure@gmail.com"
+      aria-label="Mail me"
       className="flex flex-col bg-[#F5F5F7] dark:bg-[#010101] justify-center items-center rounded-3xl relative col-span-1 aspect-square overflow-hidden shadow-sm transition duration-300 ease-in-out hover:scale-[103%] cursor-pointer">
       <HiMail
         className="text-4xl md:text-7xl lg:text-9xl"

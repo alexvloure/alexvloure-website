@@ -53,6 +53,8 @@ export default function ThemeCard() {
   return (
     <div className="flex flex-col justify-center items-center bg-[#F5F5F7] dark:bg-[#010101] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm transition duration-300 ease-in-out">
       <button
+        id="theme-button"
+        aria-label="Theme button"
         onClick={toggleTheme}
         className="w-[88px] lg:w-[128px] overflow-hidden rounded-full p-1 border-2 bg-white dark:bg-[#161616] border-gray-300 dark:border-gray-800 text-yellow-500 dark:text-gray-400">
         <AnimatePresence mode="wait" initial={false}>
