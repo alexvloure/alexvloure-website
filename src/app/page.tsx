@@ -12,7 +12,7 @@ import SpotifyCard from '@/components/home-components/SpotifyCard';
 import WeatherCard from '@/components/home-components/WeatherCard';
 import BlogCard from '@/components/blog-components/BlogCard';
 import { getPosts } from '@/utils/getPost';
-import BlogPostsCard from '@/components/home-components/BlogPostsCard';
+// import BlogPostsCard from '@/components/home-components/BlogPostsCard';
 
 export default async function Home() {
   const posts = await getPosts();

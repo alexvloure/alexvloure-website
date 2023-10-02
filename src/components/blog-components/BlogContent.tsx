@@ -4,7 +4,7 @@ import BlogPostPreview from './BlogPostPreview';
 export default async function BlogContent() {
   const posts = await getPosts();
   const articlesText =
-    posts.length === 1 ? `${posts.length} articles` : `${posts.length} article`;
+    posts.length === 1 ? `${posts.length} article` : `${posts.length} articles`;
 
   return (
     <div className="w-full">
