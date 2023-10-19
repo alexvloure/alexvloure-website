@@ -8,8 +8,9 @@ const api = new SpotifyWebApi({
   redirectUri: 'http://localhost:3000',
 });
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
+    req.json();
     api.setRefreshToken(process.env.SPOTIFY_REFRESH_TOKEN!);
     const data = await api.refreshAccessToken();
     api.setAccessToken(data.body['access_token']);
@@ -18,11 +19,7 @@ export async function GET() {
       limit: 1,
     });
 
-    return NextResponse.json(recentTracks.body.items[0].track, {
-      headers: {
-        'Cache-Control': 's-maxage=0, stale-while-revalidate',
-      },
-    });
+    return NextResponse.json(recentTracks.body.items[0].track);
   } catch (err) {
     console.log('Something went wrong!', err);
   }
