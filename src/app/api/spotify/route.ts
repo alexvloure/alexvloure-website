@@ -19,7 +19,9 @@ export async function GET() {
     });
 
     return NextResponse.json(recentTracks.body.items[0].track, {
-      status: 200,
+      headers: {
+        'Cache-Control': 's-maxage=0, stale-while-revalidate',
+      },
     });
   } catch (err) {
     console.log('Something went wrong!', err);
