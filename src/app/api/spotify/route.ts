@@ -8,9 +8,8 @@ const api = new SpotifyWebApi({
   redirectUri: 'http://localhost:3000',
 });
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
-    req.json();
     api.setRefreshToken(process.env.SPOTIFY_REFRESH_TOKEN!);
     const data = await api.refreshAccessToken();
     api.setAccessToken(data.body['access_token']);
@@ -24,3 +23,5 @@ export async function GET(req: Request) {
     console.log('Something went wrong!', err);
   }
 }
+
+export const revalidate = 60;
