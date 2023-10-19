@@ -1,3 +1,4 @@
+import { NextApiResponse } from 'next';
 import { NextResponse } from 'next/server';
 import SpotifyWebApi from 'spotify-web-api-node';
 
@@ -16,7 +17,10 @@ export async function GET() {
     const recentTracks = await api.getMyRecentlyPlayedTracks({
       limit: 1,
     });
-    return NextResponse.json(recentTracks.body.items[0].track);
+
+    return NextResponse.json(recentTracks.body.items[0].track, {
+      status: 200,
+    });
   } catch (err) {
     console.log('Something went wrong!', err);
   }
