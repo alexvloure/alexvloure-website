@@ -1,6 +1,6 @@
 'use client';
 
-import waving from '@/assets/images/alexvloure-waving_upscaled.png';
+import waving from '@/assets/images/alexvloure-waving_upscaled.webp';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
@@ -16,7 +16,6 @@ export default function AboutCard() {
         width={500}
         height={500}
         draggable="false"
-        placeholder="blur"
         loading="eager"
         priority
       />

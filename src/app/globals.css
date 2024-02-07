@@ -9,18 +9,19 @@
     --background: #fff;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
-     /** sunny side **/
-     --blue-background: #c2e9f6;
-     --blue-color: #96dcee;
-     --yellow-background: #fffaa8;
-     --yellow-border: #f5eb71;
-     --yellow-shadow: #fff190;
-     /** dark side **/
-     --purple-background: #211042;
-     --gray-border: #e8e8ea;
-     --gray-dots: #e8e8ea;
-     /** general **/
-     --white: #fff;
+    /** sunny side **/
+    --blue-background: #c2e9f6;
+    --blue-color: #96dcee;
+    --yellow-background: #fffaa8;
+    --yellow-border: #f5eb71;
+    --yellow-shadow: #fff190;
+    /** dark side **/
+    --purple-background: #211042;
+    --gray-border: #e8e8ea;
+    --gray-dots: #e8e8ea;
+    /** general **/
+    --white: #fff;
+    --grid: rgba(0,0,0,.03);
   }
 
   .dark {
@@ -28,18 +29,28 @@
     --background: #161616;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --grid: rgba(255,255,255,.03);
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: var(--background)
+  background-color: var(--background);
   /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+    background-image: linear-gradient(0deg, transparent 24%, var(--grid) 25%, var(--grid) 26%, transparent 27%, transparent 74%, var(--grid) 75%, var(--grid) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--grid) 25%, var(--grid) 26%, transparent 27%, transparent 74%, var(--grid) 75%, var(--grid) 76%, transparent 77%, transparent);
+    height:100%;
+    background-size:50px 50px;
 }
+
+/* .dark {
+  background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  height:100%;
+  background-size:50px 50px;
+} */
 
 
