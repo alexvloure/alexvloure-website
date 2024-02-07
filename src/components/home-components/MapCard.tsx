@@ -1,8 +1,8 @@
 'use client';
 
-import lightMap from '@/assets/images/lightMap.png';
-import darkMap from '@/assets/images/darkMap.png';
-import mapPfp from '@/assets/images/alexvloure_pfp.png';
+import lightMap from '@/assets/images/lightMap.webp';
+import darkMap from '@/assets/images/darkMap.webp';
+import mapPfp from '@/assets/images/alexvloure_pfp.webp';
 import { useTheme } from 'next-themes';
 import Image, { StaticImageData } from 'next/image';
 import { useEffect, useState } from 'react';
@@ -14,8 +14,6 @@ export interface Props {
 }
 
 export default function MapCard() {
-  // const darkMap = `https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/-8.5442,42.8769,12,0/480x268?access_token=${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
-  // const lightMap = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/-8.5442,42.8769,12,0/480x268?access_token=${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
   const { theme, resolvedTheme } = useTheme();
   const [map, setMap] = useState<StaticImageData>(lightMap);
 
