@@ -11,6 +11,7 @@ import { I18nextProvider } from 'react-i18next';
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import FrozenRouter from '@/components/FrozenRouter';
+import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -66,6 +67,7 @@ export default function ProvidersWrapper({
         defaultTheme={defaultTheme}
         enableSystem={enableSystem}>
         <QueryClientProvider client={queryClient}>
+          <ProgressBar options={{ showSpinner: false }} />
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               initial={{ opacity: 0, y: path !== '/blog' ? -800 : 600 }}
