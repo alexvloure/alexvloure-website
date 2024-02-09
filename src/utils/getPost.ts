@@ -27,17 +27,19 @@ export const getPosts = cache(async (): Promise<Post<Frontmatter>[]> => {
   return posts;
 });
 
-export const getPost = async (pSlug: string): Promise<Post<Frontmatter>> => {
-  const posts = await getPosts();
-  const post = posts.find((post) => post.slug === pSlug);
-  if (!post) {
-    redirect('/blog');
-  }
-  const { slug, mdxSerialized, frontmatter } = post;
+export const getPost = cache(
+  async (pSlug: string): Promise<Post<Frontmatter>> => {
+    const posts = await getPosts();
+    const post = posts.find((post) => post.slug === pSlug);
+    if (!post) {
+      redirect('/blog');
+    }
+    const { slug, mdxSerialized, frontmatter } = post;
 
-  return {
-    slug,
-    mdxSerialized,
-    frontmatter,
-  };
-};
+    return {
+      slug,
+      mdxSerialized,
+      frontmatter,
+    };
+  }
+);
