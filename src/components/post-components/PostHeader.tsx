@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-nprogress-bar';
 import { IoMdArrowBack } from 'react-icons/io';
 
 export default function PostHeader({ title }: { title: string }) {

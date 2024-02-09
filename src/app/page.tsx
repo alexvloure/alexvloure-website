@@ -14,7 +14,7 @@ import BlogCard from '@/components/blog-components/BlogCard';
 // import { getPosts } from '@/utils/getPost';
 // import BlogPostsCard from '@/components/home-components/BlogPostsCard';
 
-export default async function Home() {
+export default function Home() {
   // const posts = await getPosts();
 
   return (
