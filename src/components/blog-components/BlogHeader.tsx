@@ -4,10 +4,7 @@ import { IoMdArrowBack } from 'react-icons/io';
 export default function BlogHeader() {
   return (
     <div className="w-full min-h-[100px] flex flex-col justify-between items-center gap-5 overflow-hidden relative">
-      <Link
-        className="cursor-pointer self-start items-center flex"
-        href={'/'}
-        scroll={false}>
+      <Link className="cursor-pointer self-start items-center flex" href={'/'}>
         <IoMdArrowBack className="text-lg md:text-3xl mr-3 md:mr-5" />
         <h2 className="font-bold text-lg md:text-3xl">home</h2>
       </Link>

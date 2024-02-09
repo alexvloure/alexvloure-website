@@ -6,8 +6,7 @@ export default function PostHeader({ title }: { title: string }) {
     <div className="w-full min-h-[150px] flex flex-col justify-between items-center gap-5 overflow-hidden relative">
       <Link
         className="cursor-pointer self-start items-center flex"
-        href={'/blog'}
-        scroll={false}>
+        href={'/blog'}>
         <IoMdArrowBack className="text-lg md:text-3xl mr-3 md:mr-5" />
         <h2 className="font-bold text-lg md:text-3xl">blog</h2>
       </Link>
