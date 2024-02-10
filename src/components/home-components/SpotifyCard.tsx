@@ -69,21 +69,21 @@ export default function SpotifyCard() {
   };
 
   return (
-    <div className="relative flex flex-col h-full justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-4 lg:p-8 bg-[#0000008f]">
+    <div className="relative flex flex-col justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-4 lg:p-8 bg-[#0000008f]">
       <a
         href={data?.external_urls.spotify}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute invisible md:visible md:static md:text-4xl max-w-[36px] text-[#1DB954] hover:text-[#39a961]">
+        className="absolute invisible md:visible md:static md:text-4xl max-w-[36px] text-[#1DB954] duration-500 hover:text-[#39a961] ease-in-out">
         <BsSpotify />
       </a>
       <Image
         src={data?.album.images[0].url || noise}
         alt="Album cover last song played"
-        layout="fill"
-        objectFit="cover"
+        width={data?.album.images[0].width}
+        height={data?.album.images[0].height}
         priority
-        className="-z-10 scale-[106%]"
+        className="absolute w-full h-full top-0 left-0 object-cover object-center -z-10 transition duration-300 ease-in-out transform scale-[106%]"
       />
       <div>
         <h2 className="text-white font-bold text-xs md:text-xl lg:text-2xl">
