@@ -6,7 +6,7 @@ import noise from '@/assets/images/noise-resized.gif';
 import { BsSpotify, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import styles from '@/styles/SpotifyCard.module.css';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 export default function SpotifyCard() {
   const { t } = useTranslation('global');
@@ -34,30 +34,18 @@ export default function SpotifyCard() {
 
   const handlePlay = () => {
     setIsPlaying(true);
-    document.getElementById('wave1')!.style.animationPlayState = 'running';
-    document.getElementById('wave2')!.style.animationPlayState = 'running';
-    document.getElementById('wave3')!.style.animationPlayState = 'running';
-    document.getElementById('wave4')!.style.animationPlayState = 'running';
-    document.getElementById('wave5')!.style.animationPlayState = 'running';
-    document.getElementById('wave6')!.style.animationPlayState = 'running';
-    document.getElementById('wave7')!.style.animationPlayState = 'running';
-    document.getElementById('wave8')!.style.animationPlayState = 'running';
-    document.getElementById('wave9')!.style.animationPlayState = 'running';
-    document.getElementById('wave10')!.style.animationPlayState = 'running';
+    Array.from(Array(10).fill(0)).forEach((_, i) => {
+      const wave = document.getElementById(`wave${i + 1}`)!;
+      wave.style.animationPlayState = 'running';
+    });
   };
 
   const handlePause = () => {
     setIsPlaying(false);
-    document.getElementById('wave1')!.style.animationPlayState = 'paused';
-    document.getElementById('wave2')!.style.animationPlayState = 'paused';
-    document.getElementById('wave3')!.style.animationPlayState = 'paused';
-    document.getElementById('wave4')!.style.animationPlayState = 'paused';
-    document.getElementById('wave5')!.style.animationPlayState = 'paused';
-    document.getElementById('wave6')!.style.animationPlayState = 'paused';
-    document.getElementById('wave7')!.style.animationPlayState = 'paused';
-    document.getElementById('wave8')!.style.animationPlayState = 'paused';
-    document.getElementById('wave9')!.style.animationPlayState = 'paused';
-    document.getElementById('wave10')!.style.animationPlayState = 'paused';
+    Array.from(Array(10).fill(0)).forEach((_, i) => {
+      const wave = document.getElementById(`wave${i + 1}`)!;
+      wave.style.animationPlayState = 'paused';
+    });
   };
 
   const handleState = () => {
@@ -80,10 +68,11 @@ export default function SpotifyCard() {
       <Image
         src={data?.album.images[0].url || noise}
         alt="Album cover last song played"
-        width={data?.album.images[0].width}
-        height={data?.album.images[0].height}
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center center"
         priority
-        className="absolute w-full h-full top-0 left-0 object-cover object-center -z-10 transition duration-300 ease-in-out transform scale-[106%]"
+        className="-z-10 transition duration-300 ease-in-out transform scale-[106%]"
       />
       <div>
         <h2 className="text-white font-bold text-xs md:text-xl lg:text-2xl">
