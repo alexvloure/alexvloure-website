@@ -1,12 +1,11 @@
 'use client';
 
 import { useSpotify } from '@/hooks/useSpotify';
-import Image from 'next/image';
-import noise from '@/assets/images/noise-resized.gif';
+import noise from '@/assets/images/noise.gif';
 import { BsSpotify, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import styles from '@/styles/SpotifyCard.module.css';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function SpotifyCard() {
   const { t } = useTranslation('global');
@@ -57,7 +56,15 @@ export default function SpotifyCard() {
   };
 
   return (
-    <div className="relative flex flex-col justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-4 lg:p-8 bg-[#0000008f]">
+    <div
+      style={{
+        backgroundImage: `url(${data?.album.images[0].url || noise.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundBlendMode: 'overlay',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      }}
+      className="relative flex flex-col justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-4 lg:p-8">
       <a
         href={data?.external_urls.spotify}
         target="_blank"
@@ -65,15 +72,6 @@ export default function SpotifyCard() {
         className="absolute invisible md:visible md:static md:text-4xl max-w-[36px] text-[#1DB954] duration-500 hover:text-[#39a961] ease-in-out">
         <BsSpotify />
       </a>
-      <Image
-        src={data?.album.images[0].url || noise}
-        alt="Album cover last song played"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center center"
-        priority
-        className="-z-10 transition duration-300 ease-in-out transform scale-[106%]"
-      />
       <div>
         <h2 className="text-white font-bold text-xs md:text-xl lg:text-2xl">
           {t('spotify.recently')}
