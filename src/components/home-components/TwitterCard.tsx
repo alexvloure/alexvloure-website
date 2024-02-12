@@ -4,9 +4,7 @@ import Card from './Card';
 
 export default function TwitterCard() {
   return (
-    <Card
-      colSpan={1}
-      className="bg-[#010101] hover:scale-[103%] cursor-pointer">
+    <Card className="bg-[#010101] hover:scale-[103%] cursor-pointer">
       <a
         href="https://x.com/alexvloure"
         target="_blank"

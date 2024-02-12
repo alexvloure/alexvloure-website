@@ -53,7 +53,6 @@ export default function ThemeCard() {
 
   return (
     <Card
-      colSpan={1}
       withDefaultColor
       className="flex flex-col justify-center items-center">
       <button

@@ -38,7 +38,6 @@ export default function SkillsCard() {
 
   return (
     <Card
-      colSpan={1}
       withDefaultColor
       className="grid grid-cols-4 place-content-center place-items-center gap-3 md:gap-8 p-4 md:p-8 text-center text-xl md:text-2xl lg:text-5xl">
       <SiHtml5

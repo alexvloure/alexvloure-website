@@ -25,10 +25,7 @@ export default function MailCard() {
   }, [theme, resolvedTheme]);
 
   return (
-    <Card
-      colSpan={1}
-      withDefaultColor
-      className="hover:scale-[103%] cursor-pointer">
+    <Card withDefaultColor className="hover:scale-[103%] cursor-pointer">
       <a
         href="mailto: alejandrovloure@gmail.com"
         aria-label="Mail me"

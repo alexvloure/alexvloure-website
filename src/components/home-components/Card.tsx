@@ -1,5 +1,5 @@
 type CardProps = {
-  colSpan: number;
+  colSpan?: 1 | 2 | 3;
   children: React.ReactNode;
   withDefaultColor?: boolean;
   className?: string;
@@ -7,18 +7,30 @@ type CardProps = {
 };
 
 const Card: React.FC<CardProps> = ({
-  colSpan,
+  colSpan = 1,
   children,
   withDefaultColor = false,
   className,
   style,
 }) => {
-  const aspectRatio = colSpan === 1 ? 'aspect-square' : 'aspect-auto';
+  const getColSpanStyles = () => {
+    switch (colSpan) {
+      case 1:
+        return 'col-span-1 aspect-square';
+      case 2:
+        return 'col-span-2 aspect-auto';
+      case 3:
+        return 'col-span-3 aspect-auto';
+      default:
+        return 'col-span-1 aspect-square';
+    }
+  };
+
   const color = withDefaultColor ? 'bg-[#F5F5F7] dark:bg-[#010101]' : '';
 
   return (
     <div
-      className={`relative rounded-3xl col-span-${colSpan} ${aspectRatio} min-h-[100px] overflow-hidden ${color} ${className} transition duration-300 ease-in-out`}
+      className={`${getColSpanStyles()} ${color} ${className} relative rounded-3xl min-h-[100px] overflow-hidden transition duration-300 ease-in-out`}
       style={style}>
       {children}
     </div>

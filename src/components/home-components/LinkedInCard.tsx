@@ -4,9 +4,7 @@ import Card from './Card';
 
 export default function LinkedInCard() {
   return (
-    <Card
-      colSpan={1}
-      className="bg-[#0077B5] bg-opacity-80 dark:bg-opacity-60 hover:scale-[103%] cursor-pointer">
+    <Card className="bg-[#0077B5] bg-opacity-80 dark:bg-opacity-60 hover:scale-[103%] cursor-pointer">
       <a
         href="https://www.linkedin.com/in/alexvloure"
         target="_blank"
