@@ -8,6 +8,7 @@ import Night from './weather-components/Night';
 
 import { useEffect, useState } from 'react';
 import { useTime } from '@/hooks/useTime';
+import Card from './Card';
 
 export default function WeatherCard() {
   const { t } = useTranslation('global');
@@ -51,7 +52,7 @@ export default function WeatherCard() {
   };
 
   return (
-    <div className="flex flex-col rounded-3xl col-span-2 overflow-hidden">
+    <Card colSpan={2} className="flex flex-col">
       <div
         className={`${
           isDayTime ? 'bg-[#00ADF2]' : 'bg-[#0C1445]'
@@ -88,6 +89,6 @@ export default function WeatherCard() {
           </>
         )}
       </div>
-    </div>
+    </Card>
   );
 }

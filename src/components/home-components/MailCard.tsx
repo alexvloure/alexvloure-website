@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { HiMail } from 'react-icons/hi';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
+import Card from './Card';
 
 export default function MailCard() {
   const { theme, resolvedTheme } = useTheme();
@@ -24,15 +25,20 @@ export default function MailCard() {
   }, [theme, resolvedTheme]);
 
   return (
-    <a
-      href="mailto: alejandrovloure@gmail.com"
-      aria-label="Mail me"
-      className="flex flex-col bg-[#F5F5F7] dark:bg-[#010101] justify-center items-center rounded-3xl relative col-span-1 aspect-square overflow-hidden shadow-sm transition duration-300 ease-in-out hover:scale-[103%] cursor-pointer">
-      <HiMail
-        className="text-4xl md:text-7xl lg:text-9xl"
-        style={{ fill: gradient }}
-      />
-      <IoIosArrowDroprightCircle className="text-red-400 dark:text-violet-400 text-lg md:text-3xl absolute right-4 bottom-4 xl:right-8 xl:bottom-8" />
-    </a>
+    <Card
+      colSpan={1}
+      withDefaultColor
+      className="hover:scale-[103%] cursor-pointer">
+      <a
+        href="mailto: alejandrovloure@gmail.com"
+        aria-label="Mail me"
+        className="h-full flex flex-col justify-center items-center">
+        <HiMail
+          className="text-4xl md:text-7xl lg:text-9xl"
+          style={{ fill: gradient }}
+        />
+        <IoIosArrowDroprightCircle className="text-red-400 dark:text-violet-400 text-lg md:text-3xl absolute right-4 bottom-4 xl:right-8 xl:bottom-8" />
+      </a>
+    </Card>
   );
 }

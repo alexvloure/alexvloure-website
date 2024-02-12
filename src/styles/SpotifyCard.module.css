@@ -5,6 +5,7 @@
   background: white;
   animation: waveformMove 1s infinite forwards;
   border-radius: 20px;
+  animation-play-state: paused;
 }
 
 .waveform:nth-child(1) {

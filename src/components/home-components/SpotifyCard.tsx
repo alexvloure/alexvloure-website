@@ -6,15 +6,12 @@ import { BsSpotify, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import styles from '@/styles/SpotifyCard.module.css';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
+import Card from './Card';
 
 export default function SpotifyCard() {
   const { t } = useTranslation('global');
   const { data, isLoading } = useSpotify();
   const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    handlePause();
-  }, []);
 
   useEffect(() => {
     const audio = document.getElementById('music') as HTMLAudioElement;
@@ -56,15 +53,12 @@ export default function SpotifyCard() {
   };
 
   return (
-    <div
+    <Card
+      colSpan={2}
       style={{
         backgroundImage: `url(${data?.album.images[0].url || noise.src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundBlendMode: 'overlay',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
       }}
-      className="relative flex flex-col justify-end md:justify-between rounded-3xl col-span-2 md:col-span-1 md:aspect-square overflow-hidden p-3 md:p-4 lg:p-8">
+      className="bg-cover bg-center bg-blend-overlay bg-[rgba(0,0,0,0.5)] md:col-span-1 md:aspect-square flex flex-col justify-end md:justify-between p-3 md:p-4 lg:p-8">
       <a
         href={data?.external_urls.spotify}
         target="_blank"
@@ -109,6 +103,6 @@ export default function SpotifyCard() {
             onEnded={handlePause}></audio>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

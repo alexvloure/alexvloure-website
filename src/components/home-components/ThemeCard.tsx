@@ -6,6 +6,7 @@ import { TbSunFilled } from 'react-icons/tb';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import Card from './Card';
 
 export default function ThemeCard() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -51,7 +52,10 @@ export default function ThemeCard() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-[#F5F5F7] dark:bg-[#010101] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm transition duration-300 ease-in-out">
+    <Card
+      colSpan={1}
+      withDefaultColor
+      className="flex flex-col justify-center items-center">
       <button
         id="theme-button"
         aria-label="Theme button"
@@ -74,6 +78,6 @@ export default function ThemeCard() {
           </motion.div>
         </AnimatePresence>
       </button>
-    </div>
+    </Card>
   );
 }

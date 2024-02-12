@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Card from './Card';
 
 export default function LanguageCard() {
   const { t, i18n } = useTranslation('global');
@@ -40,9 +41,11 @@ export default function LanguageCard() {
   };
 
   return (
-    <div
-      onClick={toggleLanguage}
-      className="flex flex-col justify-center items-center bg-[#F5F5F7] dark:bg-[#010101] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer hover:scale-[103%] transition duration-300 ease-in-out">
+    <Card
+      colSpan={1}
+      withDefaultColor
+      className="flex flex-col justify-center items-center hover:scale-[103%] cursor-pointer"
+      onClick={toggleLanguage}>
       <p className="font-semibold uppercase text-5xl md:text-8xl bg-clip-text text-transparent dark:bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] dark:from-amber-200 dark:via-violet-600 dark:to-sky-900 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-pink-500 via-red-500 to-yellow-500">
         {language}
       </p>
@@ -64,6 +67,6 @@ export default function LanguageCard() {
           ES
         </span>
       </p>
-    </div>
+    </Card>
   );
 }

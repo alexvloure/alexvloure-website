@@ -16,6 +16,7 @@ import {
   SiCss3,
   SiGo,
 } from 'react-icons/si';
+import Card from './Card';
 
 export default function SkillsCard() {
   const { theme, resolvedTheme } = useTheme();
@@ -36,7 +37,10 @@ export default function SkillsCard() {
   }, [theme, resolvedTheme]);
 
   return (
-    <div className="grid grid-cols-4 place-content-center place-items-center bg-[#F5F5F7] dark:bg-[#010101] gap-3 md:gap-8 p-4 md:p-8 rounded-3xl overflow-hidden relative col-span-1 aspect-square shadow-sm text-center text-xl md:text-2xl lg:text-5xl transition duration-300 ease-in-out">
+    <Card
+      colSpan={1}
+      withDefaultColor
+      className="grid grid-cols-4 place-content-center place-items-center gap-3 md:gap-8 p-4 md:p-8 text-center text-xl md:text-2xl lg:text-5xl">
       <SiHtml5
         style={{
           fill: gradient,
@@ -93,6 +97,6 @@ export default function SkillsCard() {
           fill: gradient,
         }}
       />
-    </div>
+    </Card>
   );
 }

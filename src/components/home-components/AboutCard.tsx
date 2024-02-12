@@ -3,12 +3,13 @@
 import waving from '@/assets/images/alexvloure-waving_upscaled.webp';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import Card from './Card';
 
 export default function AboutCard() {
   const { t } = useTranslation('global');
 
   return (
-    <div className="relative col-span-3 bg-[#F5F5F7] dark:bg-[#010101] md:aspect-auto aspect-square md:row-span-2 rounded-3xl overflow-hidden transition duration-300 ease-in-out">
+    <Card colSpan={3} withDefaultColor className="md:row-span-2">
       <Image
         src={waving}
         alt="alexvloure waving"
@@ -26,6 +27,6 @@ export default function AboutCard() {
         </h1>
         <h2 className="text-base md:text-2xl">{t('aboutMe.description')}</h2>
       </div>
-    </div>
+    </Card>
   );
 }
