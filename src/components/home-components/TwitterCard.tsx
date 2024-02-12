@@ -1,5 +1,3 @@
-'use client';
-
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { FaXTwitter } from 'react-icons/fa6';
 import Card from './Card';
