@@ -11,7 +11,6 @@ import MailCard from '@/components/home-components/MailCard';
 import SpotifyCard from '@/components/home-components/SpotifyCard';
 import WeatherCard from '@/components/home-components/WeatherCard';
 import BlogCard from '@/components/blog-components/BlogCard';
-import Card from '@/components/home-components/Card';
 // import { getPosts } from '@/utils/getPost';
 // import BlogPostsCard from '@/components/home-components/BlogPostsCard';
 

@@ -3,10 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 export const useWeather = () => {
   const { i18n } = useTranslation('global');
-  const fetchWeather = () => {
-    return fetch(`/api/weather?lang=${i18n.language}`).then((response) =>
-      response.json()
-    );
+  const fetchWeather = async () => {
+    const response = await fetch(`/api/weather?lang=${i18n.language}`);
+    return await response.json();
   };
   const { data, error, isLoading } = useQuery({
     queryKey: ['weather'],
