@@ -1,7 +1,7 @@
 'use client';
 
 import { useSpotify } from '@/hooks/useSpotify';
-import noise from '@/assets/images/noise-optimized.gif';
+import noise from '@/assets/images/noise-resized.gif';
 import { BsSpotify, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import styles from '@/styles/SpotifyCard.module.css';
 import { useTranslation } from 'react-i18next';

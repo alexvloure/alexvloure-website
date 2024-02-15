@@ -4,30 +4,31 @@ import { useTheme } from 'next-themes';
 import { BiSolidMoon } from 'react-icons/bi';
 import { TbSunFilled } from 'react-icons/tb';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Card from './Card';
 
 export default function ThemeCard() {
-  const darkPreferred = window?.matchMedia(
-    '(prefers-color-scheme: dark)'
-  )?.matches;
-  const { theme, setTheme } = useTheme();
-  const [isDark, setIsDark] = useState<boolean>(darkPreferred);
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [isDark, setIsDark] = useState<boolean>(false);
   const isLg = useMediaQuery({ query: '(min-width: 1024px)' });
 
-  useLayoutEffect(() => {
-    if (theme === 'dark') {
-      setIsDark(true);
+  useEffect(() => {
+    if (theme === 'system') {
+      if (resolvedTheme === 'light') {
+        setIsDark(false);
+      } else {
+        setIsDark(true);
+      }
     } else if (theme === 'light') {
       setIsDark(false);
     } else {
-      setIsDark(darkPreferred);
+      setIsDark(true);
     }
-  }, []);
+  }, [theme, resolvedTheme]);
 
   const toggleTheme = () => {
-    if (!isDark) {
+    if (theme === 'light') {
       setTheme('dark');
       setIsDark(true);
     } else {
