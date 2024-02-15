@@ -8,11 +8,10 @@ import { useLayoutEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Card from './Card';
 
-const darkPreferred = window?.matchMedia(
-  '(prefers-color-scheme: dark)'
-)?.matches;
-
 export default function ThemeCard() {
+  const darkPreferred = window?.matchMedia(
+    '(prefers-color-scheme: dark)'
+  )?.matches;
   const { theme, setTheme } = useTheme();
   const [isDark, setIsDark] = useState<boolean>(darkPreferred);
   const isLg = useMediaQuery({ query: '(min-width: 1024px)' });
