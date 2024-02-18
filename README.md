@@ -8,3 +8,5 @@
   <p>A showcase of my abilities</p>
   <br />
 </div>
+
+<p>This project uses Next.js and TailwindCSS</p>
